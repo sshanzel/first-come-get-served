@@ -1,3 +1,5 @@
+## Random project for providing solution on current food ordering system inside the company. trying to make it digitalized
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
