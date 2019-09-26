@@ -6,6 +6,7 @@ import Layout from "./layout";
 import Home from "./view/Home";
 import Food from "./view/Food";
 import Market from "./view/Market";
+import Stall from "./view/Stall";
 import "./App.scss";
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <Layout>
         <Switch component={Fader}>
           <Route path="/market" component={Market} />
+          <Route path="/stall" component={Stall} />
           <Route path="/food" component={Food} />
           <Route path="/" exact component={Home} />
         </Switch>

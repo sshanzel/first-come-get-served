@@ -4,25 +4,17 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import clsx from "clsx";
 
-export default function HeaderAppBar({ onDrawerOpen, open, classes }) {
+export default function HeaderAppBar({ onDrawerToggle, classes }) {
   return (
-    <AppBar
-      position="fixed"
-      className={clsx(classes.appBar, {
-        [classes.appBarShift]: open
-      })}
-    >
+    <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={onDrawerOpen}
           edge="start"
-          className={clsx(classes.menuButton, {
-            [classes.hide]: open
-          })}
+          onClick={onDrawerToggle}
+          className={classes.menuButton}
         >
           <MenuIcon />
         </IconButton>
