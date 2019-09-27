@@ -1,8 +1,8 @@
-import { combineReduces } from "react-redux";
+import { combineReducers } from "redux";
 import app from "./appReducers";
 
-export default function rootReducer() {
-  return combineReduces({
-    app
-  });
-}
+const rootReducer = combineReducers({
+  app
+});
+
+export default rootReducer;

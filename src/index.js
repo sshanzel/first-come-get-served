@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import "./index.css";
+import { Provider } from "react-redux";
+import configureStore from "./store/configureStore";
 import App from "./App";
+import "./index.css";
 // import * as serviceWorker from './serviceWorker';
 
+const store = configureStore();
 const rootEl = document.getElementById("root");
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   rootEl
 );
 
@@ -18,9 +23,11 @@ if (module.hot) {
   module.hot.accept("./App", () => {
     const NextApp = require("./App").default;
     ReactDOM.render(
-      <BrowserRouter>
-        <NextApp />
-      </BrowserRouter>,
+      <Provider store={store}>
+        <BrowserRouter>
+          <NextApp />
+        </BrowserRouter>
+      </Provider>,
       rootEl
     );
   });

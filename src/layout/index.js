@@ -1,6 +1,7 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { connect } from "react-redux";
 import HeaderAppBar from "./Header";
 import SidebarDrawer from "./Sidebar";
 
@@ -39,11 +40,13 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3)
+  },
+  contentNoPadding: {
+    flexGrow: 1
   }
 }));
 
-export default function MiniDrawer(props) {
-  const { container } = props;
+export const Layout = ({ container, children, app }) => {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -52,6 +55,7 @@ export default function MiniDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
+  console.log(app);
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -63,10 +67,18 @@ export default function MiniDrawer(props) {
         classes={classes}
         onDrawerToggle={handleDrawerToggle}
       />
-      <main className={classes.content}>
+      <main className={app.padded ? classes.content : classes.contentNoPadding}>
         <div className={classes.toolbar} />
-        {props.children}
+        {children}
       </main>
     </div>
   );
+};
+
+function mapStateToProps(state, ownProps) {
+  return {
+    app: state.app
+  };
 }
+
+export default connect(mapStateToProps)(Layout);
