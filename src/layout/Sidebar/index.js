@@ -18,12 +18,20 @@ export default function SidebarDrawer({
   container,
   onDrawerToggle
 }) {
-  const drawer = (
+  const handleItemClick = variant => {
+    if (variant === "temporary") onDrawerToggle();
+  };
+
+  const drawer = variant => (
     <div>
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <Link className={classes.link} to="/">
+        <Link
+          className={classes.link}
+          to="/"
+          onClick={() => handleItemClick(variant)}
+        >
           <ListItem button>
             <ListItemIcon>
               <InboxIcon />
@@ -31,7 +39,11 @@ export default function SidebarDrawer({
             <ListItemText primary="Home" />
           </ListItem>
         </Link>
-        <Link className={classes.link} to="/market">
+        <Link
+          className={classes.link}
+          to="/market"
+          onClick={() => handleItemClick(variant)}
+        >
           <ListItem button>
             <ListItemIcon>
               <SvgIcon>
@@ -42,7 +54,11 @@ export default function SidebarDrawer({
             <ListItemText primary="Market" />
           </ListItem>
         </Link>
-        <Link className={classes.link} to="/stall">
+        <Link
+          className={classes.link}
+          to="/stall"
+          onClick={() => handleItemClick(variant)}
+        >
           <ListItem button>
             <ListItemIcon>
               <SvgIcon>
@@ -85,7 +101,7 @@ export default function SidebarDrawer({
             keepMounted: true // Better open performance on mobile.
           }}
         >
-          {drawer}
+          {drawer("temporary")}
         </Drawer>
       </Hidden>
       <Hidden xsDown implementation="css">
@@ -96,7 +112,7 @@ export default function SidebarDrawer({
           variant="permanent"
           open
         >
-          {drawer}
+          {drawer("permanent")}
         </Drawer>
       </Hidden>
     </nav>

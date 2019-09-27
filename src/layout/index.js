@@ -56,7 +56,6 @@ export const Layout = ({ container, children, app }) => {
     setMobileOpen(!mobileOpen);
   };
 
-  console.log(app);
   return (
     <div className={classes.root}>
       <CssBaseline />
