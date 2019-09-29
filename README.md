@@ -5,6 +5,8 @@ Currently using AWS Amplify for Continuous Integration / Continuous Deployment a
   
 Managing Domain with AWS Route 53, and soon to release backend API using AWS Lambda and AWS S3 for file storage of images.
 
+To know more about the story behind this project, check out my [LinkedIn account!] (https://www.linkedin.com/in/lee-hansel-solevilla-776538122) 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
