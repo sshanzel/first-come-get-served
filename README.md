@@ -1,6 +1,6 @@
 ## Random project for providing solution on current food ordering system inside the company. trying to make it digitalized
 
-Currently using AWS Amplify for Continuous Integration / Continuous Deployment approach, live link below:
+Currently using AWS Amplify for a simple Continuous Deployment, live link below:
   https://firstcomegetserved.thesolevilla.com/market
   
 Managing Domain with AWS Route 53, and soon to release backend API using AWS Lambda and AWS S3 for file storage of images.
